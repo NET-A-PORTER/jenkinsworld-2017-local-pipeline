@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+
+  local-pipeline:
+    build: local-pipeline
+    environment:
+     - DOCKER_IP
+     - DOCKER_HOSTNAME
+     - DOCKER_SERVER_URL
+     - GIT_USER=admin
+     - GIT_PASSWORD=secret
+     - GIT_SERVER_URL=http://gerrit:8080/sas
+     - JAVA_OPTS
+     - JENKINS_URL=http://local-pipeline
+    privileged: true
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+     - local-volume:/var/jenkins_home
+    restart: always
+    networks:
+     - local-network
+
+  nginx:
+    build: nginx
+    ports:
+     - "80:80"
+    restart: always
+    networks:
+     - local-network
+
+  gerrit:
+    build: gerrit
+    networks:
+     - local-network
+    ports:
+     - "29418:29418"
+    volumes:
+     - ./.git/modules/sample-app:/var/gerrit/git/sample-app.git
+
+networks:
+    local-network:
+        driver: bridge
+
+volumes:
+    local-volume:
