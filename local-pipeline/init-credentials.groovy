@@ -11,6 +11,7 @@ import hudson.security.*
 import com.cloudbees.jenkins.plugins.awscredentials.*
 
 Thread.start {
+
     sleep 5000
     global_domain = Domain.global()
     credentials_store =
@@ -30,7 +31,6 @@ Thread.start {
             new BasicSSHUserPrivateKey.UsersPrivateKeySource(),
             "",
             "")
-    )
 
     System.setProperty('GIT_USER', '')
     System.setProperty('GIT_PASSWORD', '')
