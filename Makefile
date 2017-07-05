@@ -15,6 +15,7 @@ start:
 	DOCKER_IP=${DOCKER_IP} DOCKER_HOSTNAME=${DOCKER_HOSTNAME} DOCKER_SERVER_URL=${DOCKER_SERVER_URL} && docker-compose up -d
 
 build:
+	cd jenkins-pipeline && docker build -t jenkins-pipeline .
 	docker-compose build
 	cd slave-sbt && docker build -t slave-sbt .
 
