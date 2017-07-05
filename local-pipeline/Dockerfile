@@ -32,8 +32,8 @@ RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 581
 
 # Version definitions (can be overridden by CLI arguments)
 ARG JENKINS_URL=http://repo.jenkins-ci.org/public
-ARG JENKINS_WAR_VER=2.58
-ARG JENKINS_WAR_SHA=37a85821c5026396177a2b2487f14f9548034478
+ARG JENKINS_WAR_VER=2.68
+ARG JENKINS_WAR_SHA=a527957e55df3498b75e6edb99eb389466318a84
 ARG JJB_VERSION=1.6.1
 
 # Set Jenkins ENV
