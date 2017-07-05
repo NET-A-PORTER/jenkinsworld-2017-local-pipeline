@@ -21,6 +21,25 @@ services:
     networks:
      - local-network
 
+  central-pipeline:
+    build: central-pipeline
+    environment:
+     - DOCKER_IP
+     - DOCKER_HOSTNAME
+     - DOCKER_SERVER_URL
+     - GIT_USER
+     - GIT_PASSWORD
+     - GIT_SERVER_URL=https://github.com/NET-A-PORTER/jenkinsworld-2017-sample-app
+     - JAVA_OPTS
+     - JENKINS_URL=http://central-pipeline
+    privileged: true
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+     - central-volume:/var/jenkins_home
+    restart: always
+    networks:
+     - local-network
+
   nginx:
     build: nginx
     ports:
@@ -44,3 +63,4 @@ networks:
 
 volumes:
     local-volume:
+    central-volume:

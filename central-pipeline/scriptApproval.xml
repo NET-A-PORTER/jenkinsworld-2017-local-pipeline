@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<scriptApproval plugin="script-security@1.25">
+    <approvedScriptHashes/>
+    <approvedSignatures>
+        <string>method java.lang.Throwable printStackTrace</string>
+        <string>method java.lang.Throwable printStackTrace java.io.PrintWriter</string>
+        <string>new java.io.PrintWriter java.io.Writer</string>
+    </approvedSignatures>
+    <aclApprovedSignatures/>
+    <approvedClasspathEntries/>
+    <pendingScripts/>
+    <pendingSignatures/>
+    <pendingClasspathEntries/>
+</scriptApproval>
