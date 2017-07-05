@@ -69,6 +69,5 @@ COPY run-jenkins.sh /usr/local/bin/run-jenkins.sh
 COPY jenkins.sh /usr/local/bin/jenkins.sh
 COPY config.sh /usr/local/bin/
 
-USER jenkins
 
 
