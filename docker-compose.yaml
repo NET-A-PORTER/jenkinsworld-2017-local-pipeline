@@ -8,10 +8,6 @@ services:
      - DOCKER_IP
      - DOCKER_HOSTNAME
      - DOCKER_SERVER_URL
-     - GIT_USER=admin
-     - GIT_PASSWORD=secret
-     - GITHUB_USER
-     - GITHUB_PASSWORD
      - GIT_SERVER_URL=http://gerrit:8080/sample-app
      - JAVA_OPTS
      - JENKINS_URL=http://local-pipeline
@@ -29,8 +25,6 @@ services:
      - DOCKER_IP
      - DOCKER_HOSTNAME
      - DOCKER_SERVER_URL
-     - GIT_USER
-     - GIT_PASSWORD
      - GIT_SERVER_URL=https://github.com/NET-A-PORTER/jenkinsworld-2017-sample-app
      - JAVA_OPTS
      - JENKINS_URL=http://central-pipeline
