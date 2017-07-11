@@ -20,24 +20,13 @@ Thread.start {
             )[0].getStore()
     def env = System.getenv()
 
-    println("Setting Gerrit credentials for user ${System.getProperty('GIT_USER')}")
-    stashCredentials = new com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl(
+    println("Setting Heroku credentials for user ${System.getProperty('HEROKU_USER')}")
+    herokuCredentials = new com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl(
             CredentialsScope.GLOBAL,
-            "gerrit", "Gerrit Credentials", System.getProperty('GIT_USER'), System.getProperty('GIT_PASSWORD'))
+            "heroku", "Heroku Credentials", System.getProperty('HEROKU_USER'), System.getProperty('HEROKU_PASSWORD'))
 
-    sshCredentials = new BasicSSHUserPrivateKey(
-            CredentialsScope.GLOBAL,
-            "jenkins", "jenkins",
-            new BasicSSHUserPrivateKey.UsersPrivateKeySource(),
-            "",
-            "")
+    System.setProperty('HEROKU_USER', '')
+    System.setProperty('HEROKU_PASSWORD', '')
 
-    System.setProperty('GIT_USER', '')
-    System.setProperty('GIT_PASSWORD', '')
-
-    credentials_store.addCredentials(global_domain, stashCredentials)
-    credentials_store.addCredentials(global_domain, sshCredentials)
-
-    def job = Hudson.instance.getJob('sas-pipeline')
-    job.scheduleBuild(1, new hudson.cli.BuildCommand.CLICause("Jenkins startup"))
+    credentials_store.addCredentials(global_domain, herokuCredentials)
 }

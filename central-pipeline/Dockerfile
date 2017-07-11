@@ -26,3 +26,4 @@ COPY gitconfig $JENKINS_REF/.gitconfig
 RUN chown jenkins:jenkins $JENKINS_REF/.ssh/id_rsa* && \
     chmod 600 $JENKINS_REF/.ssh/id_rsa
 
+COPY init-credentials.groovy $JENKINS_REF/init.groovy.d/
